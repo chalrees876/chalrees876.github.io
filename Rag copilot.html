@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chris McKenzie</title>
+  <title>RAG Copilot — Chris McKenzie</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,16 +50,19 @@
     .tag { font-size: 0.7rem; padding: 0.18rem 0.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; color: var(--muted); }
     footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-size: 0.78rem; color: var(--muted); }
 
-    .project { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-    .project:last-child { border-bottom: none; }
-    .project-name-link { font-weight: 500; font-size: 0.9rem; color: var(--ink); cursor: pointer; transition: color 0.15s; }
-    .project-name-link:hover { color: var(--accent); }
-    .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.6rem; margin-top: 0.3rem; }
-    .edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
-    .edu-row:last-child { border-bottom: none; }
-    .edu-school { color: var(--muted); font-size: 0.8rem; }
-    .edu-year { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
-  </style>
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.82rem; color: var(--muted); margin-top: 2rem; margin-bottom: 0.25rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--accent); }
+    .project-title { font-family: 'Source Serif 4', serif; font-weight: 400; font-size: 1.6rem; line-height: 1.25; margin-bottom: 0.5rem; margin-top: 0.4rem; }
+    .project-subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+    h4 { font-family: 'Source Serif 4', serif; font-weight: 400; font-size: 1rem; margin-bottom: 0.5rem; margin-top: 1.5rem; color: var(--ink); }
+    ul.detail-list { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    ul.detail-list li { font-size: 0.875rem; color: #3a3a36; line-height: 1.75; margin-bottom: 0.3rem; }
+    .stat-row { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.25rem 0; }
+    .stat { }
+    .stat-val { font-family: 'Source Serif 4', serif; font-size: 1.5rem; font-weight: 400; color: var(--accent); }
+    .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; }
+</style>
 </head>
 <body>
 <div class="container">
@@ -83,33 +86,56 @@
       </ul>
     </div>
     <div class="main">
-      <h3>About</h3>
-      <p>I am a <strong>Mechanical Engineer and AI Governance Liaison</strong> at SSOE Group in New York City, and an incoming M.S. Data Science student at the <strong>NYU Center for Data Science</strong> (Fall 2026). I am also pursuing an M.S. in Computer Science at Georgia Tech.</p>
-      <p>My work sits at the intersection of data engineering, machine learning, and applied AI. I build production data pipelines, ML systems, and internal AI tooling. Outside of work I'm an active birder and marathon runner.</p>
-
-      <h3 id="projects">Projects</h3>
-
-      <div class="project">
-        <a href="tennisiq.html" class="project-name-link">TennisIQ — ATP Match Prediction Platform</a>
-        <p class="project-desc">Production ML platform processing 200,000+ historical ATP records. Automated daily ETL pipeline, 50+ engineered features, and an ensemble model deployed via REST API on AWS EC2.</p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">scikit-learn</span><span class="tag">AWS EC2</span><span class="tag">REST API</span>
-        </div>
+      <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left" style="font-size:0.75rem;"></i> Projects</a>
+      <h1 class="project-title">Engineering Standards RAG Copilot</h1>
+      <p class="project-subtitle">AI assistant for querying ASHRAE &amp; SMACNA engineering standards</p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">LangChain</span><span class="tag">pgvector</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">OpenAI API</span><span class="tag">PyMuPDF</span><span class="tag">AWS</span>
       </div>
 
-      <div class="project">
-        <a href="rag-copilot.html" class="project-name-link">Engineering Standards RAG Copilot</a>
-        <p class="project-desc">AI assistant for querying 2,000+ pages of ASHRAE and SMACNA engineering standards. Hybrid retrieval with 84% hit rate vs. 71% vector-only baseline. Containerized FastAPI service on AWS.</p>
-        <div class="tags">
-          <span class="tag">LangChain</span><span class="tag">pgvector</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">OpenAI API</span>
-        </div>
+      <hr class="divider" />
+
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val">2,000+</div><div class="stat-label">pages indexed</div></div>
+        <div class="stat"><div class="stat-val">84%</div><div class="stat-label">retrieval hit rate</div></div>
+        <div class="stat"><div class="stat-val">75</div><div class="stat-label">question eval set</div></div>
       </div>
 
-      <h3 id="about">Education</h3>
-      <div class="edu-row"><div><div>M.S. Data Science</div><div class="edu-school">NYU Center for Data Science</div></div><span class="edu-year">Beginning 2026</span></div>
-      <div class="edu-row"><div><div>M.S. Computer Science</div><div class="edu-school">Georgia Institute of Technology</div></div><span class="edu-year">Expected 2028</span></div>
-      <div class="edu-row"><div><div>B.S. Computer Science</div><div class="edu-school">Western Governors University</div></div><span class="edu-year">2025</span></div>
-      <div class="edu-row"><div><div>B.S. Mechanical Engineering</div><div class="edu-school">University of Delaware</div></div><span class="edu-year">2021</span></div>
+      <h4>Overview</h4>
+      <p>This project builds an AI assistant that lets engineers ask natural language questions and get answers grounded in ASHRAE and SMACNA standards documents. Rather than fine-tuning a model on engineering content, it uses retrieval-augmented generation (RAG): relevant document chunks are retrieved at query time and injected into the LLM's context window.</p>
+      <p>The motivation came from my day-to-day work as a mechanical engineer — standards documents are dense, poorly indexed, and slow to search manually. The system was built as a portfolio project while working through the architecture from scratch, with a mentor-guided approach to understand every design decision.</p>
+
+      <h4>Document ingestion pipeline</h4>
+      <ul class="detail-list">
+        <li>PDF extraction using PyMuPDF (<code style="font-size:0.82rem;background:#f0ede8;padding:1px 4px;border-radius:3px;">fitz</code>), chosen for better structure preservation on multi-column engineering layouts compared to pypdf</li>
+        <li>Page-level extraction carries <code style="font-size:0.82rem;background:#f0ede8;padding:1px 4px;border-radius:3px;">page_num</code> metadata into each chunk, enabling citations like "see ASHRAE 62.1, page 47"</li>
+        <li>Chunking via <code style="font-size:0.82rem;background:#f0ede8;padding:1px 4px;border-radius:3px;">RecursiveCharacterTextSplitter</code> with tiktoken-based length function — 512 tokens, 50 overlap, splitting on paragraph then sentence boundaries</li>
+        <li>Embeddings generated via OpenAI API and stored in PostgreSQL with the pgvector extension</li>
+      </ul>
+
+      <h4>Database schema</h4>
+      <ul class="detail-list">
+        <li>Each chunk stored with <code style="font-size:0.82rem;background:#f0ede8;padding:1px 4px;border-radius:3px;">VECTOR(1536)</code> column for similarity search and <code style="font-size:0.82rem;background:#f0ede8;padding:1px 4px;border-radius:3px;">TSVECTOR</code> generated column for full-text keyword search</li>
+        <li>HNSW index on the vector column for fast approximate nearest-neighbor retrieval</li>
+        <li>GIN index on the tsvector column for efficient BM25-style keyword matching</li>
+        <li>The <code style="font-size:0.82rem;background:#f0ede8;padding:1px 4px;border-radius:3px;">content_tsv</code> column is a PostgreSQL generated column — automatically kept in sync on insert/update without manual maintenance</li>
+      </ul>
+
+      <h4>Hybrid retrieval</h4>
+      <ul class="detail-list">
+        <li>Combines vector similarity search (pgvector cosine distance) with BM25 keyword ranking in a single query</li>
+        <li>Reciprocal rank fusion merges the two ranked lists into a final set of retrieved chunks</li>
+        <li>Built a 75-question evaluation set with verified answers drawn from the standards documents</li>
+        <li>Hybrid retrieval achieved <strong>84% hit rate</strong> vs. 71% for vector-only — a meaningful improvement for technical queries with precise terminology</li>
+      </ul>
+
+      <h4>API &amp; deployment</h4>
+      <ul class="detail-list">
+        <li>FastAPI service with streaming responses — answers begin rendering before the full generation completes</li>
+        <li>Redis caching layer reduces latency and API cost for repeated or near-duplicate queries</li>
+        <li>Fully containerized with Docker; deployed on AWS</li>
+        <li>Retrieval and generation steps are decoupled, making it straightforward to swap the LLM backend or retrieval strategy independently</li>
+      </ul>
     </div>
   </div>
   <footer><p>© 2026 Chris McKenzie · New York City</p></footer>

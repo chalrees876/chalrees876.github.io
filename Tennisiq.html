@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chris McKenzie</title>
+  <title>TennisIQ — Chris McKenzie</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -50,16 +50,19 @@
     .tag { font-size: 0.7rem; padding: 0.18rem 0.5rem; background: var(--bg); border: 1px solid var(--border); border-radius: 3px; color: var(--muted); }
     footer { border-top: 1px solid var(--border); padding: 1.5rem 0; font-size: 0.78rem; color: var(--muted); }
 
-    .project { margin-bottom: 1.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
-    .project:last-child { border-bottom: none; }
-    .project-name-link { font-weight: 500; font-size: 0.9rem; color: var(--ink); cursor: pointer; transition: color 0.15s; }
-    .project-name-link:hover { color: var(--accent); }
-    .project-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.65; margin-bottom: 0.6rem; margin-top: 0.3rem; }
-    .edu-row { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.875rem; }
-    .edu-row:last-child { border-bottom: none; }
-    .edu-school { color: var(--muted); font-size: 0.8rem; }
-    .edu-year { color: var(--muted); font-size: 0.78rem; white-space: nowrap; }
-  </style>
+    .back-link { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.82rem; color: var(--muted); margin-top: 2rem; margin-bottom: 0.25rem; transition: color 0.15s; }
+    .back-link:hover { color: var(--accent); }
+    .project-title { font-family: 'Source Serif 4', serif; font-weight: 400; font-size: 1.6rem; line-height: 1.25; margin-bottom: 0.5rem; margin-top: 0.4rem; }
+    .project-subtitle { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 1.75rem 0; }
+    h4 { font-family: 'Source Serif 4', serif; font-weight: 400; font-size: 1rem; margin-bottom: 0.5rem; margin-top: 1.5rem; color: var(--ink); }
+    ul.detail-list { padding-left: 1.25rem; margin-bottom: 0.75rem; }
+    ul.detail-list li { font-size: 0.875rem; color: #3a3a36; line-height: 1.75; margin-bottom: 0.3rem; }
+    .stat-row { display: flex; gap: 2rem; flex-wrap: wrap; margin: 1.25rem 0; }
+    .stat { }
+    .stat-val { font-family: 'Source Serif 4', serif; font-size: 1.5rem; font-weight: 400; color: var(--accent); }
+    .stat-label { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; }
+</style>
 </head>
 <body>
 <div class="container">
@@ -83,33 +86,55 @@
       </ul>
     </div>
     <div class="main">
-      <h3>About</h3>
-      <p>I am a <strong>Mechanical Engineer and AI Governance Liaison</strong> at SSOE Group in New York City, and an incoming M.S. Data Science student at the <strong>NYU Center for Data Science</strong> (Fall 2026). I am also pursuing an M.S. in Computer Science at Georgia Tech.</p>
-      <p>My work sits at the intersection of data engineering, machine learning, and applied AI. I build production data pipelines, ML systems, and internal AI tooling. Outside of work I'm an active birder and marathon runner.</p>
-
-      <h3 id="projects">Projects</h3>
-
-      <div class="project">
-        <a href="tennisiq.html" class="project-name-link">TennisIQ — ATP Match Prediction Platform</a>
-        <p class="project-desc">Production ML platform processing 200,000+ historical ATP records. Automated daily ETL pipeline, 50+ engineered features, and an ensemble model deployed via REST API on AWS EC2.</p>
-        <div class="tags">
-          <span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">scikit-learn</span><span class="tag">AWS EC2</span><span class="tag">REST API</span>
-        </div>
+      <a href="index.html#projects" class="back-link"><i class="fas fa-arrow-left" style="font-size:0.75rem;"></i> Projects</a>
+      <h1 class="project-title">TennisIQ</h1>
+      <p class="project-subtitle">ATP Match Prediction Platform</p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">scikit-learn</span><span class="tag">AWS EC2</span><span class="tag">REST API</span><span class="tag">Nginx/Gunicorn</span><span class="tag">Cron</span>
       </div>
 
-      <div class="project">
-        <a href="rag-copilot.html" class="project-name-link">Engineering Standards RAG Copilot</a>
-        <p class="project-desc">AI assistant for querying 2,000+ pages of ASHRAE and SMACNA engineering standards. Hybrid retrieval with 84% hit rate vs. 71% vector-only baseline. Containerized FastAPI service on AWS.</p>
-        <div class="tags">
-          <span class="tag">LangChain</span><span class="tag">pgvector</span><span class="tag">FastAPI</span><span class="tag">PostgreSQL</span><span class="tag">Docker</span><span class="tag">OpenAI API</span>
-        </div>
+      <hr class="divider" />
+
+      <div class="stat-row">
+        <div class="stat"><div class="stat-val">200K+</div><div class="stat-label">ATP match records</div></div>
+        <div class="stat"><div class="stat-val">50+</div><div class="stat-label">engineered features</div></div>
+        <div class="stat"><div class="stat-val">68%</div><div class="stat-label">prediction accuracy</div></div>
       </div>
 
-      <h3 id="about">Education</h3>
-      <div class="edu-row"><div><div>M.S. Data Science</div><div class="edu-school">NYU Center for Data Science</div></div><span class="edu-year">Beginning 2026</span></div>
-      <div class="edu-row"><div><div>M.S. Computer Science</div><div class="edu-school">Georgia Institute of Technology</div></div><span class="edu-year">Expected 2028</span></div>
-      <div class="edu-row"><div><div>B.S. Computer Science</div><div class="edu-school">Western Governors University</div></div><span class="edu-year">2025</span></div>
-      <div class="edu-row"><div><div>B.S. Mechanical Engineering</div><div class="edu-school">University of Delaware</div></div><span class="edu-year">2021</span></div>
+      <h4>Overview</h4>
+      <p>TennisIQ is a production machine learning platform that predicts ATP match outcomes using historical match data, player statistics, and betting market signals. The system runs daily automated pipelines to ingest new data, retrain models, and serve predictions through a REST API.</p>
+      <p>The project evolved from a Django app with CSV-based pipelines into a fully automated system with ensemble models, rolling feature computation, and AWS deployment. The goal was to build something defensible end-to-end — from raw data ingestion to a live API — not just a notebook.</p>
+
+      <h4>Data pipeline</h4>
+      <ul class="detail-list">
+        <li>Ingests 200,000+ historical ATP records via external REST API, with idempotent upserts to avoid duplication on reruns</li>
+        <li>Normalizes data into 8+ interrelated PostgreSQL tables modeling players, matches, rankings, surfaces, and tournament metadata</li>
+        <li>Automated daily ETL via cron — new matches are fetched, validated, and loaded without manual intervention</li>
+        <li>Data validation layer catches schema drift and missing fields before they reach the feature store</li>
+      </ul>
+
+      <h4>Feature engineering</h4>
+      <ul class="detail-list">
+        <li>50+ features per match including rolling N-match averages, service and return statistics, and surface-specific performance</li>
+        <li>Career fallback logic handles sparse data for newer players without leaking future information</li>
+        <li>Implied probability features derived from pre-match betting odds, providing a strong calibration signal</li>
+        <li>Head-to-head history, fatigue proxies (days since last match, matches played in last 30 days), and ranking differentials</li>
+      </ul>
+
+      <h4>Model</h4>
+      <ul class="detail-list">
+        <li>Ensemble of Logistic Regression and Random Forest, trained on a time-split holdout to prevent data leakage</li>
+        <li>68% accuracy on held-out test set; calibration evaluated to ensure predicted probabilities reflect actual win rates</li>
+        <li>A/B comparison framework to evaluate model variants — new feature sets are tested against the production baseline before deployment</li>
+        <li>Feature importance analysis used to iteratively prune noise and prioritize signal</li>
+      </ul>
+
+      <h4>Deployment</h4>
+      <ul class="detail-list">
+        <li>Django REST API deployed on AWS EC2, served via Nginx and Gunicorn</li>
+        <li>PostgreSQL RDS for persistent storage; schema managed via Django migrations</li>
+        <li>Automated daily retraining pipeline runs via cron, ensuring the model always reflects the latest data</li>
+      </ul>
     </div>
   </div>
   <footer><p>© 2026 Chris McKenzie · New York City</p></footer>
