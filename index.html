@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chris McKenzie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f7f4;
+      --ink: #1a1a18;
+      --muted: #6b6b66;
+      --accent: #2a5f4e;
+      --border: #e2dfd9;
+      --card: #ffffff;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 2rem 0 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 400;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 5rem 0 3.5rem;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.2rem);
+      line-height: 1.15;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      max-width: 540px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.55rem 1.2rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      border-radius: 4px;
+      transition: all 0.15s;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--bg);
+      border: 1px solid var(--ink);
+    }
+
+    .btn-primary:hover { background: #333; border-color: #333; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover { border-color: var(--ink); }
+
+    /* ── Section ── */
+    section {
+      padding: 3rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    /* ── Projects ── */
+    .project {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project:last-child { border-bottom: none; }
+
+    .project-info { flex: 1; }
+
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 420px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.75rem;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 400;
+      padding: 0.2rem 0.55rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--muted);
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 400;
+      white-space: nowrap;
+      padding-top: 0.15rem;
+      transition: opacity 0.15s;
+    }
+
+    .project-link:hover { opacity: 0.7; }
+
+    /* ── About ── */
+    .about-text {
+      font-size: 0.95rem;
+      color: var(--muted);
+      max-width: 520px;
+      line-height: 1.8;
+    }
+
+    .about-text strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* ── Education ── */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+    }
+
+    .edu-row:last-child { border-bottom: none; }
+
+    .edu-degree {
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    .edu-school {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .edu-year {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── Contact ── */
+    .contact-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      font-size: 0.875rem;
+      color: var(--muted);
+      transition: color 0.15s;
+    }
+
+    .contact-item:hover { color: var(--ink); }
+
+    /* ── Footer ── */
+    footer {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 540px) {
+      .project { flex-direction: column; }
+      .project-link { padding-top: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <nav>
+      <span class="nav-name">Chris McKenzie</span>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <span class="hero-tag">Data Science &amp; ML Engineering</span>
+      <h1>Building systems that learn from data.</h1>
+      <p>Mechanical engineer turned data scientist. I build ML pipelines, data infrastructure, and AI tooling. Based in New York City.</p>
+      <div class="hero-links">
+        <a href="https://linkedin.com/in/cmckenzie12" class="btn btn-primary" target="_blank">LinkedIn ↗</a>
+        <a href="mailto:chris.mcke876@gmail.com" class="btn btn-secondary">Get in touch</a>
+      </div>
+    </header>
+
+    <section id="projects">
+      <p class="section-label">Projects</p>
+
+      <div class="project">
+        <div class="project-info">
+          <p class="project-name">TennisIQ</p>
+          <p class="project-desc">ATP match prediction platform processing 200,000+ historical records. Ensemble ML model with automated daily ETL, feature engineering across 50+ variables, and a REST API deployed on AWS.</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Django</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">scikit-learn</span>
+            <span class="tag">AWS EC2</span>
+          </div>
+        </div>
+        <a href="https://github.com/cmckenzie12" class="project-link" target="_blank">GitHub ↗</a>
+      </div>
+
+      <div class="project">
+        <div class="project-info">
+          <p class="project-name">Engineering Standards RAG Copilot</p>
+          <p class="project-desc">AI assistant for querying 2,000+ pages of ASHRAE and SMACNA engineering standards. Hybrid retrieval combining pgvector similarity search with BM25 keyword ranking — 84% retrieval hit rate vs. 71% vector-only baseline.</p>
+          <div class="project-tags">
+            <span class="tag">LangChain</span>
+            <span class="tag">pgvector</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Docker</span>
+            <span class="tag">OpenAI API</span>
+          </div>
+        </div>
+        <a href="https://github.com/cmckenzie12" class="project-link" target="_blank">GitHub ↗</a>
+      </div>
+
+    </section>
+
+    <section id="about">
+      <p class="section-label">About</p>
+      <p class="about-text">
+        I'm a <strong>Mechanical Engineer and AI Governance Liaison</strong> at SSOE Group in New York, transitioning into data science and ML engineering. I built two CS degrees alongside full-time work and am starting an <strong>M.S. in Data Science at NYU CDS</strong> in Fall 2026.
+        <br /><br />
+        My background spans data pipelines, production ML systems, and building internal AI tooling across engineering teams. Outside of work I'm an avid birder and marathon runner.
+      </p>
+
+      <div style="margin-top: 2.5rem;">
+        <p class="section-label">Education</p>
+        <div class="edu-row">
+          <div>
+            <p class="edu-degree">M.S. Data Science</p>
+            <p class="edu-school">NYU Center for Data Science</p>
+          </div>
+          <span class="edu-year">Beginning 2026</span>
+        </div>
+        <div class="edu-row">
+          <div>
+            <p class="edu-degree">M.S. Computer Science</p>
+            <p class="edu-school">Georgia Institute of Technology</p>
+          </div>
+          <span class="edu-year">Expected 2028</span>
+        </div>
+        <div class="edu-row">
+          <div>
+            <p class="edu-degree">B.S. Computer Science</p>
+            <p class="edu-school">Western Governors University</p>
+          </div>
+          <span class="edu-year">2025</span>
+        </div>
+        <div class="edu-row">
+          <div>
+            <p class="edu-degree">B.S. Mechanical Engineering</p>
+            <p class="edu-school">University of Delaware</p>
+          </div>
+          <span class="edu-year">2021</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <p class="section-label">Contact</p>
+      <div class="contact-row">
+        <a href="mailto:chris.mcke876@gmail.com" class="contact-item">chris.mcke876@gmail.com</a>
+        <a href="https://linkedin.com/in/cmckenzie12" class="contact-item" target="_blank">LinkedIn</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>New York City &nbsp;·&nbsp; 2026</p>
+    </footer>
+
+  </div>
+
+</body>
+</html>
